@@ -472,16 +472,12 @@ recordResponse: function(button, count, type) {
     if (count <= -1) {console.log(uniqueRecord);}
    	if (count == -1) {app.scheduleNotifs(); app.renderLastPage(lastPage[2], count);}
     else if (count == SNOOZEQ && response == 0) {app.renderLastPage(lastPage[1], count);}
-    else if (count == 5 && response == 0) {app.renderLastPage(lastPage[0], count);}
-    else if (count == 5 && response == 1) {$("#question").fadeOut(400, function () {$("#question").html("");app.renderQuestion(6);});}
-    else if (count == 7 && response == 0) {$("#question").fadeOut(400, function () {$("#question").html("");app.renderQuestion(9);});}
-    else if (count == 7 && response == 1) {$("#question").fadeOut(400, function () {$("#question").html("");app.renderQuestion(8);});}
-    else if (count == 10 && response < 11) {$("#question").fadeOut(400, function () {$("#question").html("");app.renderQuestion(12);});}
-    else if (count == 10 && response == 11) {$("#question").fadeOut(400, function () {$("#question").html("");app.renderQuestion(11);});}
-    else if (count == 13 && response == 0) {app.renderLastPage(lastPage[0], count);}
-    else if (count == 13 && response == 1) {$("#question").fadeOut(400, function () {$("#question").html("");app.renderQuestion(14);});}
-    else if (count == 16 && response == 0) {app.renderLastPage(lastPage[0], count);}
-    else if (count == 16 && response == 1) {$("#question").fadeOut(400, function () {$("#question").html("");app.renderQuestion(14);});}
+    
+    else if (count == 1 && response == 0) {app.renderLastPage(lastPage[0], count);}
+    else if (count == 4 && response < 8) {$("#question").fadeOut(400, function () {$("#question").html("");app.renderQuestion(6);});}
+    else if (count == 6 && response > 1) {$("#question").fadeOut(400, function () {$("#question").html("");app.renderQuestion(8);});}
+    else if (count == 11 && response < 9) {$("#question").fadeOut(400, function () {$("#question").html("");app.renderQuestion(13);});}
+    
     else if (count < surveyQuestions.length-1) {$("#question").fadeOut(400, function () {$("#question").html("");app.renderQuestion(count+1);});}
     else {app.renderLastPage(lastPage[0], count);}
 },
