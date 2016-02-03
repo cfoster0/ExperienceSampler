@@ -16,177 +16,174 @@ var surveyQuestions = [
                        },
                     	/*1*/
                        {
-                       "type": "instructions",
-                       "variableName": "generalInstructions",
-                       "questionPrompt": "On the following screens, we will be asking you questions about your experiences since we last beeped you.",
+                       "type": "mult1",
+                       "variableName": "start",
+                       "questionPrompt": "Within the last hour, did you have a negative interaction with someone? (Note: A negative interaction could be an interaction that upset, angered, or irritated you. It could also be someone doing something you disapproved of or disliked.",
+                       "minResponse": 0,
+                       "maxResponse": 1,
+                       "labels": [
+                       		 {"label": "No"},
+                       		 {"label": "Yes"}
+                       		 ],
                        },
                        /*2*/
                        {
-                       "type": "mult2",                       
-                       "variableName": "mood",
-                       "questionPrompt": "Please indicate how you feel right now.",
-                       "minResponse": -3,
-                       "maxResponse": 3,
-                       "labels":[
-                                {"label": "3 Very positive"},
-                                {"label": "2 Somewhat positive"},
-                                {"label": "1 A little positive"},
-                                {"label": "0 Neutral"},
-                                {"label": "-1 A little negative"},
-                                {"label": "-2 Somewhat negative"},
-                                {"label": "-3 Very negative"},  
-                                ]
+                       "type": "text",                       
+                       "variableName": "what_happened_input",
+                       "questionPrompt": "In as few words as needed, what happened in the interaction?",
                        },
                        /*3*/
                        {
-                       "type": "text",
-                       "variableName": "mostStressfulEvent",
-                       "questionPrompt": "What the most stressful thing you experienced today?",
+                       "type": "checklist",
+                       "variableName": "interaction_feelings",
+                       "questionPrompt": "How did you feel about the interaction?",
+                       "minResponse": 1,
+                       "maxResponse": 13,
+                       "labels": [
+                       		{label: "upset"},
+                                {label: "afraid"},
+                                {label: "irritated"},
+                                {label: "disrespected"},
+                                {label: "ashamed"},
+                                {label: "nervous"},
+                                {label: "embarrassed"},
+                                {label: "angry"},
+                                {label: "guilty"},
+                                {label: "confident"},
+                                {label: "proud"},
+                                {label: "excited"},
+                                {label: "happy"},
+                       		],
                        },
                        /*4*/
                        {
-                       "type": "slider",
-                       "variableName": "stressThermometer",
-                       "questionPrompt": "Please indicate the amount of stress you are experiencing at the moment by moving the slider up or down. 0 means you are experiencing no stress and 100 means you are experiencing the highest amount of stress. You can see the value to the right of the slider.",
-                       "minResponse": 0,
-                       "maxResponse": 100,
+                       "type": "checklist",
+                       "variableName": "location_negative",
+                       "questionPrompt": "Where did the moral act happen? (check all that apply)?",
+                       "minResponse": 1,
+                       "maxResponse": 8,
+                       "labels": [
+                                {label: "at home"},
+                                {label: "at work/university"},
+                                {label: "at a family member’s/partner’s place"},
+                                {label: "at a friend’s or acquaintance’s place"},
+                                {label: "in a public building"},
+                                {label: "in a public place/on the street"},
+                                {label: "outdoors (in nature)"},
+                                {label: "other"},
+                                ],
+                       },
                        },
                        /*5*/
                        {
-                       "type": "mult1",
-                       "variableName": "experienceConflict",
-                       "questionPrompt": "Did you experience any conflicts since the last time you completed the survey?",
-                       "minResponse": 0,
-                       "maxResponse": 1,
-                       "labels": [
-                                {"label": "No"},
-                                {"label": "Yes"}
-                                ],
+                       "type": "text",
+                       "variableName": "other_location",
+                       "questionPrompt": "Please specify 'other':",
                        },
                        /*6*/
                        {
-                       "type": "text",
-                       "variableName": "conflictParticipant",
-                       "questionPrompt": "Who was the primary person involved in this conflict?",
+                       "type": "mult1",
+                       "variableName": "did_anything_in_response",
+                       "questionPrompt": "In the negative interaction, did you do anything in response to the other person?",
+                       "minResponse": 1,
+                       "maxResponse": 3,
+                       "labels": [
+                                {label: "Yes"},
+                                {label: "No"},
+                                {label: "Can't recall/Does not apply"},
+                                ],
                        },
                        /*7*/
                        {
-                       "type": "mult1",
-                       "variableName": "otherConflictParticipant",
-                       "questionPrompt": "Was anyone else involved?",
-                       "minResponse": 0,
-                       "maxResponse": 1,
-                       "labels": [
-                                {"label": "No"},
-                                {"label": "Yes"}
-                                ],                       
+                       "type": "text",
+                       "variableName": "response_input",
+                       "questionPrompt": "Please describe below what you did in response to him/her.",
                        },
                        /*8*/
                        {
                        "type": "text",
-                       "variableName": "otherConflictParticipantNames",
-                       "questionPrompt": "Who else was involved in this conflict? Please list the names of the other people involved in the conflict.",
+                       "variableName": "who_input",
+                       "questionPrompt": "Who was the negative interaction with? (Note: if it was with multiple people, identify the main person)",
                        },
                        /*9*/
                        {
                        "type": "mult1",
-                       "variableName": "closeness",
-                       "questionPrompt": "How close do you feel to NAME right now?",
-                       "minResponse": 0,
-                       "maxResponse": 6,
+                       "variableName": "characteristics_gender",
+                       "questionPrompt": "Was this person...",
+                       "minResponse": 1,
+                       "maxResponse": 2,
                        "labels": [
-                                {"label": "0 Not at all close"},
-                                {"label": "1"},
-                                {"label": "2"},
-                                {"label": "3"},
-                                {"label": "4"},
-                                {"label": "5"},
-                                {"label": "6 Extremely close"}
+                                {label: "Male"},
+                                {label: "Female"},
                                 ],
                        },
                        /*10*/
                        {
                        "type": "mult1",
-                       "variableName": "conflictTopic",
-                       "questionPrompt": "What was the conflict about? Please select from the list of options below.",
+                       "variableName": "characteristics_race",
+                       "questionPrompt": "Was this person...",
                        "minResponse": 1,
-                       "maxResponse": 11,
-                       "labels":[
-                                {"label": "Money"},
-                                {"label": "Sex"},
-                                {"label": "Work"},
-                                {"label": "Children"}, 
-                            	{"label": "Chores"},
-                            	{"label": "Communication"},
-                            	{"label": "Jealousy"},
-                            	{"label": "Lack of Consideration"}, 
-                            	{"label": "Lack of Respect"},  
-                            	{"label": "Differences in Opinions"},                 
-                            	{"label": "Other"},                                       
+                       "maxResponse": 5,
+                       "labels": [
+                                {label: "White"},
+                                {label: "Black"},
+                                {label: "Latino"},
+                                {label: "Asian"},
+                                {label: "Other"},
                                 ],
                        },
                        /*11*/
                        {
-                       "type": "text",
-                       "variableName": "conflictTopicOther",
-                       "questionPrompt": "Please specify what you mean by 'other.'",
+                       "type": "checklist",
+                       "variableName": "relationship",
+                       "questionPrompt": "What is this person's relationship with you? (check all that apply)",
+                       "minResponse": 1,
+                       "maxResponse": 9,
+                       "labels": [
+                                {label: "Family member"},
+                                {label: "Friend"},
+                                {label: "Acquaintance"},
+                                {label: "Stranger"},
+                                {label: "Romantic partner"},
+                                {label: "Co-worker"},
+                                {label: "Supervisor/boss"},
+                                {label: "Employee"},
+                                {label: "Other"},
+                                ],
                        },
                        /*12*/
                        {
-                       "type": "mult1",
-                       "variableName": "conflictResolution",
-                       "questionPrompt": "Was the conflict resolved?",
-                       "minResponse": 0,
-                       "maxResponse": 1,
-                       "labels": [
-                                {"label": "No"},
-                                {"label": "Yes"},
-                                ],
+                       "type": "text",
+                       "variableName": "other_relationship",
+                       "questionPrompt": "Please specify 'other':",
                        },
                        /*13*/
                        {
                        "type": "mult1",
-                       "variableName": "conflictSupport",
-                       "questionPrompt": "Did you seek support or talk to anyone after the conflict?",
-                       "minResponse": 0,
-                       "maxResponse": 1,
+                       "variableName": "power",
+                       "questionPrompt": "Would you say you have power over this person, they have power over you, or neither?",
+                       "minResponse": 1,
+                       "maxResponse": 3,
                        "labels": [
-                                {"label": "No"},
-                                {"label": "Yes"},
+                                {label: "This person has power over me"},
+                                {label: "I have power over this person"},
+                                {label: "Neither of us has power over the other"},
                                 ],
                        },
                        /*14*/
                        {
-                       "type": "text",
-                       "variableName": "conflictSupporter",
-                       "questionPrompt": "Who did you seek support from following this conflict? Please also indicate your relationship to this person. (e.g., Mike S. - Coach)",
-                       }, 
-                       /*15*/                                             
-                       {
-                       "type": "checklist",
-                       "variableName": "typeOfSupport",
-                       "questionPrompt": "Please tell us what kind of support this person provided. Please select as many as applicable.",
-                       "minResponse": 1,
-                       "maxResponse": 4,
-                       "labels": [
-                                {"label": "Emotional support (e.g., listened to you, cheered you up)"},
-                                {"label": "Esteem support (e.g., encouraged you, boosted your confidence)"},
-                                {"label": "Informational support (e.g., gave you advice, offered ideas and suggestions)"},
-                                {"label": "Tangible support (e.g., helped you with tasks)"},                                
-                                ],
-                       },	 		                    
-                       /*16*/
-                       {
                        "type": "mult1",
-                       "variableName": "otherConflictSupporters",
-                       "questionPrompt": "Did you seek support from anyone else following this conflict?",
-                       "minResponse": 0,
-                       "maxResponse": 1,
+                       "variableName": "respect",
+                       "questionPrompt": "Which of you would you say most people respect more?",
+                       "minResponse": 1,
+                       "maxResponse": 3,
                        "labels": [
-                                {"label": "No"},
-                                {"label": "Yes"},
+                                {label: "Most people respect this person more than me"},
+                                {label: "Most people respect me more than this person"},
+                                {label: "Neither of us is respected more than the other"},
                                 ],
-                       }
+                       }, 
+                       
 ];
 var lastPage = [
                 {
@@ -475,16 +472,12 @@ recordResponse: function(button, count, type) {
     if (count <= -1) {console.log(uniqueRecord);}
    	if (count == -1) {app.scheduleNotifs(); app.renderLastPage(lastPage[2], count);}
     else if (count == SNOOZEQ && response == 0) {app.renderLastPage(lastPage[1], count);}
-    else if (count == 5 && response == 0) {app.renderLastPage(lastPage[0], count);}
-    else if (count == 5 && response == 1) {$("#question").fadeOut(400, function () {$("#question").html("");app.renderQuestion(6);});}
-    else if (count == 7 && response == 0) {$("#question").fadeOut(400, function () {$("#question").html("");app.renderQuestion(9);});}
-    else if (count == 7 && response == 1) {$("#question").fadeOut(400, function () {$("#question").html("");app.renderQuestion(8);});}
-    else if (count == 10 && response < 11) {$("#question").fadeOut(400, function () {$("#question").html("");app.renderQuestion(12);});}
-    else if (count == 10 && response == 11) {$("#question").fadeOut(400, function () {$("#question").html("");app.renderQuestion(11);});}
-    else if (count == 13 && response == 0) {app.renderLastPage(lastPage[0], count);}
-    else if (count == 13 && response == 1) {$("#question").fadeOut(400, function () {$("#question").html("");app.renderQuestion(14);});}
-    else if (count == 16 && response == 0) {app.renderLastPage(lastPage[0], count);}
-    else if (count == 16 && response == 1) {$("#question").fadeOut(400, function () {$("#question").html("");app.renderQuestion(14);});}
+    
+    else if (count == 1 && response == 0) {app.renderLastPage(lastPage[0], count);}
+    else if (count == 4 && response < 8) {$("#question").fadeOut(400, function () {$("#question").html("");app.renderQuestion(6);});}
+    else if (count == 6 && response > 1) {$("#question").fadeOut(400, function () {$("#question").html("");app.renderQuestion(8);});}
+    else if (count == 11 && response < 9) {$("#question").fadeOut(400, function () {$("#question").html("");app.renderQuestion(13);});}
+    
     else if (count < surveyQuestions.length-1) {$("#question").fadeOut(400, function () {$("#question").html("");app.renderQuestion(count+1);});}
     else {app.renderLastPage(lastPage[0], count);}
 },
@@ -522,7 +515,7 @@ sampleParticipant: function() {
 saveData:function() {
     $.ajax({
            type: 'get',
-           url: 'https://script.google.com/macros/s/AKfycbzzbp0437BkTqx95W9THF9JhWcydzn-K-FJTbwIHF23-S0JbDXG/exec',
+           url: 'https://script.google.com/macros/s/AKfycbzvFA95fMRUf5HYCSNO1IzEXJ2mYwKGX5Wezx_7MAwNkZ_wozpM/exec',
            data: localStore,
            crossDomain: true,
            success: function (result) {
@@ -540,7 +533,7 @@ saveData:function() {
 saveDataLastPage:function() {
     $.ajax({
            type: 'get',
-           url: 'https://script.google.com/macros/s/AKfycbzzbp0437BkTqx95W9THF9JhWcydzn-K-FJTbwIHF23-S0JbDXG/exec',
+           url: 'https://script.google.com/macros/s/AKfycbzvFA95fMRUf5HYCSNO1IzEXJ2mYwKGX5Wezx_7MAwNkZ_wozpM/exec',
            data: localStore,
            crossDomain: true,
            success: function (result) {	
