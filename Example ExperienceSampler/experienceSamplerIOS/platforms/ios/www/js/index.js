@@ -522,7 +522,7 @@ sampleParticipant: function() {
 saveData:function() {
     $.ajax({
            type: 'get',
-           url: 'https://script.google.com/macros/s/AKfycbzzbp0437BkTqx95W9THF9JhWcydzn-K-FJTbwIHF23-S0JbDXG/exec',
+           url: 'https://script.google.com/macros/s/AKfycbzvFA95fMRUf5HYCSNO1IzEXJ2mYwKGX5Wezx_7MAwNkZ_wozpM/exec',
            data: localStore,
            crossDomain: true,
            success: function (result) {
@@ -540,7 +540,7 @@ saveData:function() {
 saveDataLastPage:function() {
     $.ajax({
            type: 'get',
-           url: 'https://script.google.com/macros/s/AKfycbzzbp0437BkTqx95W9THF9JhWcydzn-K-FJTbwIHF23-S0JbDXG/exec',
+           url: 'https://script.google.com/macros/s/AKfycbzvFA95fMRUf5HYCSNO1IzEXJ2mYwKGX5Wezx_7MAwNkZ_wozpM/exec',
            data: localStore,
            crossDomain: true,
            success: function (result) {	
