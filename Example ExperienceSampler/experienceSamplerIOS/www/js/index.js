@@ -18,7 +18,7 @@ var surveyQuestions = [
                        {
                        "type": "mult1",
                        "variableName": "start",
-                       "questionPrompt": "Within the last hour, did you have a negative interaction with someone? (Note: A negative interaction could be an interaction that upset, angered, or irritated you. It could also be someone doing something you disapproved of or disliked.",
+                       "questionPrompt": "Within the last hour, did you have a negative interaction with someone?",
                        "minResponse": 0,
                        "maxResponse": 1,
                        "labels": [
@@ -59,7 +59,7 @@ var surveyQuestions = [
                        {
                        "type": "checklist",
                        "variableName": "location_negative",
-                       "questionPrompt": "Where did the moral act happen? (check all that apply)?",
+                       "questionPrompt": "Where did the negative interaction happen? (check all that apply)?",
                        "minResponse": 1,
                        "maxResponse": 8,
                        "labels": [
@@ -72,7 +72,6 @@ var surveyQuestions = [
                                 {label: "outdoors (in nature)"},
                                 {label: "other"},
                                 ],
-                       },
                        },
                        /*5*/
                        {
