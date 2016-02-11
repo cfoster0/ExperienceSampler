@@ -552,7 +552,7 @@ saveDataLastPage:function() {
 },
 scheduleNotifs:function() {
 	cordova.plugins.backgroundMode.enable();
-   	var interval1, interval2, interval3, interval4, interval5, interval6, interval7
+   	var interval1, interval2, interval3, interval4, interval5, interval6, interval7;
    	var a, b, c, d, e, f, g;
    	var date1, date2, date3, date4, date5, date6, date7;
    	var currentMaxHour, currentMaxMinutes, currentMinHour, currenMinMinutes, nextMinHour, nextMinMinutes;
@@ -612,7 +612,7 @@ scheduleNotifs:function() {
    			interval3 = interval2 + (parseInt(Math.round(Math.random()*randomDiaryLag)+minDiaryLag));
    			interval4 = interval3 + (parseInt(Math.round(Math.random()*randomDiaryLag)+minDiaryLag));
    			interval5 = interval4 + (parseInt(Math.round(Math.random()*randomDiaryLag)+minDiaryLag));
-   			interval6 = dinnerInterval + (parseInt(Math.round(Math.random()*randomDiaryLag)+minDiaryLagAfterDinner));
+   			interval6 = dinnerInterval + (parseInt(Math.round(Math.random()*randomDiaryLag)+minDiaryLag));
    			
    			a = 101+(parseInt(i)*100);
             b = 102+(parseInt(i)*100);
@@ -635,14 +635,13 @@ scheduleNotifs:function() {
         	localStore['notification_' + i + '_5'] = localStore.participant_id + "_" + e + "_" + date5;
         	localStore['notification_' + i + '_6'] = localStore.participant_id + "_" + f + "_" + date6;
         	
-        	notifs.push({id: a, at: date1, text: 'Time for your next Diary Survey!', title: 'Diary Surveys'});
-        	notifs.push({id: b, at: date2, text: 'Time for your next Diary Survey!', title: 'Diary Surveys'});
-        	notifs.push({id: c, at: date3, text: 'Time for your next Diary Survey!', title: 'Diary Surveys'});
-        	notifs.push({id: d, at: date4, text: 'Time for your next Diary Survey!', title: 'Diary Surveys'});
-        	notifs.push({id: e, at: date5, text: 'Time for your next Diary Survey!', title: 'Diary Surveys'});
-        	notifs.push({id: f, at: date6, text: 'Time for your next Diary Survey!', title: 'Diary Surveys'});
+        	cordova.plugins.notification.schedule({id: a, at: date1, text: 'Time for your next Diary Survey!', title: 'Diary Surveys'});
+        	cordova.plugins.notification.schedule({id: b, at: date2, text: 'Time for your next Diary Survey!', title: 'Diary Surveys'});
+        	cordova.plugins.notification.schedule({id: c, at: date3, text: 'Time for your next Diary Survey!', title: 'Diary Surveys'});
+        	cordova.plugins.notification.schedule({id: d, at: date4, text: 'Time for your next Diary Survey!', title: 'Diary Surveys'});
+        	cordova.plugins.notification.schedule({id: e, at: date5, text: 'Time for your next Diary Survey!', title: 'Diary Surveys'});
+        	cordova.plugins.notification.schedule({id: f, at: date6, text: 'Time for your next Diary Survey!', title: 'Diary Surveys'});
         	}
-        	cordova.plugins.notification.local.schedule(notifs);
 },
 snoozeNotif:function() {
     var now = new Date().getTime(), snoozeDate = new Date(now + 600*1000);
