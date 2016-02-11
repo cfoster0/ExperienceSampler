@@ -469,9 +469,9 @@ recordResponse: function(button, count, type) {
     //Identify the next question to populate the view
     //This is where you do the Question Logic
     if (count <= -1) {console.log(uniqueRecord);}
-   	if (count == -1) {app.scheduleNotifs(); app.renderLastPage(lastPage[2], count);}
-    else if (count == SNOOZEQ && response == 0) {app.renderLastPage(lastPage[1], count);}
     
+    if (count == -1) {app.scheduleNotifs(); app.renderLastPage(lastPage[2], count);}
+    else if (count == SNOOZEQ && response == 0) {app.renderLastPage(lastPage[1], count);}
     else if (count == 1 && response == 0) {app.renderLastPage(lastPage[0], count);}
     else if (count == 4 && response < 8) {$("#question").fadeOut(400, function () {$("#question").html("");app.renderQuestion(6);});}
     else if (count == 6 && response > 1) {$("#question").fadeOut(400, function () {$("#question").html("");app.renderQuestion(8);});}
@@ -551,7 +551,7 @@ saveDataLastPage:function() {
            });
 },
 scheduleNotifs:function() {
-	//cordova.plugins.backgroundMode.enable();
+	cordova.plugins.backgroundMode.enable();
    	var interval1, interval2, interval3, interval4, interval5, interval6, interval7
    	var a, b, c, d, e, f, g;
    	var date1, date2, date3, date4, date5, date6, date7;
