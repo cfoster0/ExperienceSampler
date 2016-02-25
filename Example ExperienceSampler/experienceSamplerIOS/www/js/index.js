@@ -492,8 +492,10 @@ init: function() {
     if (localStore.participant_id === " " || !localStore.participant_id) {app.renderQuestion(-NUMSETUPQS);}
     else {
     	uniqueKey = new Date().getTime();
-        localStore.uniqueKey = uniqueKey;
-        app.renderQuestion(0);
+    	if (canTakeSurvey(uniqueKey)) {
+        	localStore.uniqueKey = uniqueKey;
+        	app.renderQuestion(0);
+    	}
     }
     localStore.snoozed = 0;
 },
@@ -635,6 +637,20 @@ scheduleNotifs:function() {
         	localStore['notification_' + i + '_5'] = localStore.participant_id + "_" + e + "_" + date5;
         	localStore['notification_' + i + '_6'] = localStore.participant_id + "_" + f + "_" + date6;
         	
+        	localStore['notification1_'] = date1;
+        	localStore['notification2_'] = date2;
+        	localStore['notification3_'] = date3;
+        	localStore['notification4_'] = date4;
+        	localStore['notification5_'] = date5;
+        	localStore['notification6_'] = date6;
+        	
+        	localStore['notification1_complete'] = false;
+        	localStore['notification2_complete'] = false;
+        	localStore['notification3_complete'] = false;
+        	localStore['notification4_complete'] = false;
+        	localStore['notification5_complete'] = false;
+        	localStore['notification6_complete'] = false;
+        	
         	cordova.plugins.notification.schedule({id: a, at: date1, text: 'Time for your next Diary Survey!', title: 'Diary Surveys'});
         	cordova.plugins.notification.schedule({id: b, at: date2, text: 'Time for your next Diary Survey!', title: 'Diary Surveys'});
         	cordova.plugins.notification.schedule({id: c, at: date3, text: 'Time for your next Diary Survey!', title: 'Diary Surveys'});
@@ -663,5 +679,145 @@ validateResponse: function(data){
         } else { 
         	return true;
         }
-    },      
+    }, 
+    
+ hasTakenAlready: function(date) {
+    if (localstore.notification1_.getDate() == date.getDate()) {
+        if (localstore.notification1_complete) {
+            return true;
+        }
+    } else if (localstore.notification2_.getDate() == date.getDate()) {
+        if (localstore.notification2_complete) {
+            return true;
+        }
+    } else if (localstore.notification3_.getDate() == date.getDate()) {
+        if (localstore.notification3_complete) {
+            return true;
+        }
+    } else if (localstore.notification4_.getDate() == date.getDate()) {
+        if (localstore.notification4_complete) {
+            return true;
+        }
+    } else if (localstore.notification5_.getDate() == date.getDate()) {
+        if (localstore.notification5_complete) {
+            return true;
+        }
+    } else if (localstore.notification6_.getDate() == date.getDate()) {
+        if (localstore.notification6_complete) {
+            return true;
+        }
+    } else if (localstore.notification7_.getDate() == date.getDate()) {
+        if (localstore.notification7_complete) {
+            return true;
+        }
+    } else if (localstore.notification8_.getDate() == date.getDate()) {
+        if (localstore.notification8_complete) {
+            return true;
+        }
+    } else {
+        return false;
+    };
+},
+    
+withinLimits: function(date) {
+    if (isBefore(date, 1) && isAfter(date, 1)) {
+        return true;
+    } else if (isBefore(date, 2) && isAfter(date, 2)) {
+        return true;
+    } else if (isBefore(date, 3) && isAfter(date, 3)) {
+        return true;
+    } else if (isBefore(date, 4) && isAfter(date, 4)) {
+        return true;
+    } else if (isBefore(date, 5) && isAfter(date, 5)) {
+        return true;
+    } else if (isBefore(date, 6) && isAfter(date, 6)) {
+        return true;
+    } else if (isBefore(date, 7) && isAfter(date, 7)) {
+        return true;
+    } else if (isBefore(date, 8) && isAfter(date, 8)) {
+        return true;
+    } else {
+        return false;
+    };
+},
+  
+isBefore: function(date, order) {
+    date.setMinutes(date.getMinutes() + 20);
+    switch(order) {
+        case 1:
+            if (date < localstore.notification1_) {
+                return true;
+            }
+        case 2:
+            if (date < localstore.notification2_) {
+                return true;
+            }
+        case 3:
+            if (date < localstore.notification3_) {
+                return true;
+            }
+        case 4:
+            if (date < localstore.notification4_) {
+                return true;
+            }
+        case 5:
+            if (date < localstore.notification5_) {
+                return true;
+            }
+        case 6:
+            if (date < localstore.notification6_) {
+                return true;
+            }
+        case 7:
+            if (date < localstore.notification7_) {
+                return true;
+            }
+        case 8:
+            if (date < localstore.notification8_) {
+                return true;
+            }
+    }
+    
+    return false;
+},
+    
+isAfter: function(date, order) {
+    switch(order) {
+        case 1:
+            if (date > localstore.notification1_) {
+                return true;
+            }
+        case 2:
+            if (date > localstore.notification2_) {
+                return true;
+            }
+        case 3:
+            if (date > localstore.notification3_) {
+                return true;
+            }
+        case 4:
+            if (date > localstore.notification4_) {
+                return true;
+            }
+        case 5:
+            if (date > localstore.notification5_) {
+                return true;
+            }
+        case 6:
+            if (date > localstore.notification6_) {
+                return true;
+            }
+        case 7:
+            if (date > localstore.notification7_) {
+                return true;
+            }
+        case 8:
+            if (date > localstore.notification8_) {
+                return true;
+            }
+    }
+    
+    return false;
+},
+
 };
